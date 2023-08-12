@@ -3,3 +3,8 @@ out
 package-lock.json
 db
 dist
+
+lib/exts
+
+.DS_Store
+*.DS_Store

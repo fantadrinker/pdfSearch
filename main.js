@@ -21,8 +21,8 @@ app.whenReady().then(() => {
   ipcMain.handle('ping', () => {
     return 'pong'
   })
-  ipcMain.handle('getFiles', async () => {
-    const files = await db.getFiles()
+  ipcMain.handle('getFiles', async (event, ...args) => {
+    const files = await db.getFiles(...args)
     return files
   })
   createWindow()

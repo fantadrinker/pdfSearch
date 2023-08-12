@@ -1,17 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
-const pdf = require('pdf-parse')
 const db = require('./lib/init.js')
-
-
-function loadPDFs() {
-  // loads pdf from data folder
-  const pdfPath = path.join(__dirname, 'data', 'resume.pdf')
-  // reads and prints out the pdf texts
-  pdf(pdfPath).then(function(data) {
-    console.log(data.text)
-  })
-}
 
 function createWindow() {
   // Create the browser window.

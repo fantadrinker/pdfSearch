@@ -4,6 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
+    "buildjs": "webpack",
     "start": "electron-forge start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-forge package",
@@ -12,17 +13,27 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "@babel/preset-react": "^7.22.5",
     "@electron-forge/cli": "^6.3.0",
     "@electron-forge/maker-deb": "^6.3.0",
     "@electron-forge/maker-rpm": "^6.3.0",
     "@electron-forge/maker-squirrel": "^6.3.0",
     "@electron-forge/maker-zip": "^6.3.0",
     "@electron-forge/plugin-auto-unpack-natives": "^6.3.0",
-    "electron": "^25.5.0"
+    "babel-loader": "^9.1.3",
+    "electron": "^25.5.0",
+    "html-webpack-plugin": "^5.5.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
     "pdf-parse": "^1.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sqlite3": "^5.1.6"
   }
 }

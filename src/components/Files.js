@@ -21,7 +21,24 @@ export function Files() {
       <div>
         <input type="text" value={query} onChange={e => setQuery(e.target.value)} />
       </div>
-      {files && files.map((file) => <p key={file.id}>{file.title}</p>)}
+      {files? (<table>
+        <thead>
+          <tr>
+            <th>File Name</th>
+            <th>Matched Text</th>
+          </tr>
+        </thead>
+        <tbody>
+          {files.map((file, index) => {
+            return (
+              <tr key={index}>
+                <td>{file.title}</td>
+                <td>{file.matched_text}</td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>) : <p>Please type in query</p>}
     </div>
   );
 }

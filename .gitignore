@@ -10,3 +10,5 @@ lib/exts
 *.DS_Store
 
 data_local
+
+tests/screenshots

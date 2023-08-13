@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain, dialog } = require('electron')
 const path = require('path')
 const db = require('./lib/init.js')
 
@@ -24,6 +24,15 @@ app.whenReady().then(() => {
   ipcMain.handle('getFiles', async (event, ...args) => {
     const files = await db.getFiles(...args)
     return files
+  })
+  ipcMain.handle('selectDirectory', async () => {
+    
+    const result = await db.selectDirectory()
+    return result
+  })
+  ipcMain.handle('loadFolder', async (event, ...args) => { 
+    const result = await db.loadFolder(...args)
+    return result
   })
   createWindow()
 

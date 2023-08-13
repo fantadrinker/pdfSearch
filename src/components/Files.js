@@ -3,9 +3,16 @@ import React, { useEffect } from "react";
 export function Files() {
   const [query ,setQuery] = React.useState('');
   const [files, setFiles] = React.useState([]);
+  const [message, setMessage] = React.useState('No files found');
   async function search(query) {
-    const response = await window.electron.getFiles(query);
-    setFiles(response);
+    try {
+      const response = await window.electron.getFiles(query);
+      setFiles(response);
+    } catch (err) {
+      console.log(err);
+      setFiles([])
+      setMessage('Please select a directory')
+    }
   }
   useEffect(() => {
     if (query) {
@@ -37,7 +44,7 @@ export function Files() {
             )
           })}
         </tbody>
-      </table>) : <p>Please type in query</p>}
+      </table>) : <p>{message}</p>}
     </div>
   );
 }

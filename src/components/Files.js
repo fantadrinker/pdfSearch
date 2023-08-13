@@ -5,7 +5,6 @@ export function Files() {
   const [files, setFiles] = React.useState([]);
   async function search(query) {
     const response = await window.electron.getFiles(query);
-    console.log(files)
     setFiles(response);
   }
   useEffect(() => {

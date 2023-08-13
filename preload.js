@@ -3,6 +3,7 @@ const { contextBridge, ipcRenderer } = require('electron')
 contextBridge.exposeInMainWorld('electron', {
   ping: () => ipcRenderer.invoke('ping'),
   getFiles: (query) => ipcRenderer.invoke('getFiles', query),
+  selectDirectory: () => ipcRenderer.invoke('selectDirectory'),
 })
 
 window.addEventListener('DOMContentLoaded', () => {

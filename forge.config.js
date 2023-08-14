@@ -1,3 +1,6 @@
+const path = require('path')
+const fs = require('node:fs/promises');
+
 module.exports = {
   packagerConfig: {
     asar: true,

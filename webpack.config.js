@@ -7,6 +7,16 @@ module.exports = {
     path: path.join(__dirname, "dist"),
     filename: "[name].js",
   },
+  devServer: {
+    port: process.env.PORT || 8080,
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
+    open: true,
+    hot: true,
+    compress: true,
+    historyApiFallback: true
+  },
   module: {
     rules: [
       {
@@ -19,6 +29,11 @@ module.exports = {
           }
         }
       },
+      {
+        test: /\.css$/i,
+        include: path.resolve(__dirname, 'src'),
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
+      }
     ]
   },
   plugins: [

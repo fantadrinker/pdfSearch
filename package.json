@@ -6,7 +6,7 @@
   "scripts": {
     "buildjs": "webpack",
     "servejs": "webpack serve",
-    "start": "electron-forge start -- --dev --test",
+    "start": "concurrently \"webpack serve\" \"electron-forge start -- --dev --test\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-forge package",
     "make": "electron-forge make"
@@ -25,6 +25,7 @@
     "@electron-forge/plugin-auto-unpack-natives": "^6.3.0",
     "@playwright/test": "^1.37.0",
     "babel-loader": "^9.1.3",
+    "concurrently": "^8.2.0",
     "css-loader": "^6.8.1",
     "electron": "^25.5.0",
     "electronmon": "^2.0.2",

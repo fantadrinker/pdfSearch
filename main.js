@@ -45,7 +45,7 @@ app.whenReady().then(() => {
     return result
   })
   ipcMain.handle('openFileInFolder', async (event, ...args) => {
-    fileSystem.openFile(...args)
+    fileSystem.openFileInFolder(...args)
   })
   createWindow()
 

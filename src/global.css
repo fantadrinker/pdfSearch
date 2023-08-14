@@ -25,3 +25,7 @@ button {
 input {
   @apply border border-gray-400 rounded;
 }
+
+table, th, td {
+  @apply border border-gray-400 px-4 py-2;
+}

@@ -12,7 +12,7 @@
     "make": "webpack && electron-forge make",
     "publish": "electron-forge publish"
   },
-  "author": "",
+  "author": "fredcui",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.22.10",

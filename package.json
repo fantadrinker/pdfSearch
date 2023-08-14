@@ -1,17 +1,17 @@
 {
   "name": "pdftextsearch",
   "version": "1.0.0",
-  "description": "",
+  "description": "A app that allows you to search by text among pdf files",
   "main": "main.js",
   "scripts": {
-    "buildjs": "webpack",
     "servejs": "webpack serve",
     "start": "concurrently \"webpack serve\" \"electron-forge start -- --dev --test\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "package": "webpack && electron-forge package",
+    "make": "webpack && electron-forge make",
+    "publish": "webpack && electron-forge publish"
   },
-  "author": "",
+  "author": "fredcui",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.22.10",
@@ -23,6 +23,7 @@
     "@electron-forge/maker-squirrel": "^6.3.0",
     "@electron-forge/maker-zip": "^6.3.0",
     "@electron-forge/plugin-auto-unpack-natives": "^6.3.0",
+    "@electron-forge/publisher-github": "^6.3.0",
     "@playwright/test": "^1.37.0",
     "babel-loader": "^9.1.3",
     "concurrently": "^8.2.0",

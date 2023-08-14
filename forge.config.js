@@ -1,3 +1,6 @@
+const path = require('path')
+const fs = require('node:fs/promises');
+
 module.exports = {
   packagerConfig: {
     asar: true,
@@ -28,4 +31,29 @@ module.exports = {
       config: {},
     },
   ],
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 'fantadrinker',
+          name: 'pdfSearch'
+        },
+        prerelease: false,
+        draft: false
+      }
+    }
+  ],
+  hooks: {
+    packageAfterPrune: async (_config, buildPath) => {
+      const gypPath = path.join(
+        buildPath,
+        'node_modules',
+        'sqlite3',
+        'build',
+        'node_gyp_bins'
+      );
+      await fs.rm(gypPath, {recursive: true, force: true});
+   }
+ }
 };

@@ -49,7 +49,7 @@ module.exports = {
       const gypPath = path.join(
         buildPath,
         'node_modules',
-        'moduleName',
+        'sqlite3',
         'build',
         'node_gyp_bins'
       );

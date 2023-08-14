@@ -12,12 +12,11 @@ function createWindow() {
     }
   })
 
-  console.log(`running on ${process.env.NODE_ENV} env`)
   // and load the index.html of the app.
   if (process.env.NODE_ENV === 'production') {
     win.loadFile('dist/index.html')
   } else {
-    win.loadURL('http://localhost:8080')
+    win.loadURL(`http://localhost:${process.env.PORT || 8080}`)
   }
 
   //win.webContents.openDevTools()

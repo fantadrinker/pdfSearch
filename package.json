@@ -1,6 +1,6 @@
 {
   "name": "pdftextsearch",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A app that allows you to search by text among pdf files",
   "main": "main.js",
   "scripts": {

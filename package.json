@@ -1,7 +1,7 @@
 {
   "name": "pdftextsearch",
   "version": "1.0.0",
-  "description": "",
+  "description": "A app that allows you to search by text among pdf files",
   "main": "main.js",
   "scripts": {
     "buildjs": "webpack",

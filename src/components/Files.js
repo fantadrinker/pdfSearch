@@ -50,7 +50,9 @@ export function Files() {
                 >
                   {file.title}
                 </td>
-                <td>{file.matched_text}</td>
+                <td dangerouslySetInnerHTML={
+                  {__html: file.matched_text}
+                }></td>
               </tr>
             )
           })}

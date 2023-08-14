@@ -2,6 +2,8 @@ const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const db = require('./lib/init.js')
 
+const isDev = process.argv.includes('--dev')
+
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
@@ -11,12 +13,11 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.js')
     }
   })
-
   // and load the index.html of the app.
-  if (process.env.NODE_ENV === 'production') {
-    win.loadFile('dist/index.html')
-  } else {
+  if (isDev) {
     win.loadURL(`http://localhost:${process.env.PORT || 8080}`)
+  } else {
+    win.loadFile(path.join(__dirname, 'dist/index.html'))
   }
 }
 

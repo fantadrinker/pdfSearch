@@ -23,11 +23,11 @@ export function Files() {
   }, [query])
   return (
     <>
-      <h1>Files</h1>
-      <div>
+      <div className="mb-3">
+        <label className="font-bold mr-3">Search By Text:</label>
         <input type="text" value={query} onChange={e => setQuery(e.target.value)} />
       </div>
-      {files? (<table>
+      {files? (<table className="">
         <thead>
           <tr>
             <th>File Name</th>

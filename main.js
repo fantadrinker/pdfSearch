@@ -18,8 +18,6 @@ function createWindow() {
   } else {
     win.loadURL(`http://localhost:${process.env.PORT || 8080}`)
   }
-
-  //win.webContents.openDevTools()
 }
 
 app.whenReady().then(() => {

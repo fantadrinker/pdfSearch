@@ -11,7 +11,7 @@ body > main {
 }
 
 body section {
-  @apply bg-white shadow border-b-black;
+  @apply bg-white shadow border-b-black my-2;
 }
 
 button {

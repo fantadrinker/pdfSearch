@@ -14,6 +14,13 @@ export function Files() {
       setMessage('Please select a directory')
     }
   }
+
+  function openFile(path) {
+    console.log(path)
+    if (!path) return;
+    window.electron.openFileInFolder(path)
+  }
+
   useEffect(() => {
     if (query) {
       search(query)
@@ -37,8 +44,13 @@ export function Files() {
         <tbody>
           {files.map((file, index) => {
             return (
-              <tr key={index}>
-                <td>{file.title}</td>
+              <tr key={`${index}_${file.path}`}>
+                <td 
+                  onClick={() => openFile(file.path)}
+                  className="cursor-pointer hover:underline"
+                >
+                  {file.title}
+                </td>
                 <td>{file.matched_text}</td>
               </tr>
             )

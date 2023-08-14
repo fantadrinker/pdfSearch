@@ -4,6 +4,7 @@ contextBridge.exposeInMainWorld('electron', {
   ping: () => ipcRenderer.invoke('ping'),
   getFiles: (query) => ipcRenderer.invoke('getFiles', query),
   selectDirectory: () => ipcRenderer.invoke('selectDirectory'),
+  openFileInFolder: (path) => ipcRenderer.invoke('openFileInFolder', path),
 })
 
 window.addEventListener('DOMContentLoaded', () => {

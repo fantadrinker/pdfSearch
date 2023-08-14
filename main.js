@@ -1,7 +1,8 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
-const db = require('./lib/init.js')
 const log = require('electron-log/main')
+const fileSystem = require('./lib/fileSystem.js')
+const db = require('./lib/init.js')
 
 const isDev = process.argv.includes('--dev')
 
@@ -42,6 +43,9 @@ app.whenReady().then(() => {
   ipcMain.handle('loadFolder', async (event, ...args) => { 
     const result = await db.loadFolder(...args)
     return result
+  })
+  ipcMain.handle('openFileInFolder', async (event, ...args) => {
+    fileSystem.openFile(...args)
   })
   createWindow()
 

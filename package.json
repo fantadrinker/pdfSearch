@@ -4,13 +4,12 @@
   "description": "A app that allows you to search by text among pdf files",
   "main": "main.js",
   "scripts": {
-    "buildjs": "webpack",
     "servejs": "webpack serve",
     "start": "concurrently \"webpack serve\" \"electron-forge start -- --dev --test\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "package": "electron-forge package",
+    "package": "webpack && electron-forge package",
     "make": "webpack && electron-forge make",
-    "publish": "electron-forge publish"
+    "publish": "webpack && electron-forge publish"
   },
   "author": "fredcui",
   "license": "ISC",

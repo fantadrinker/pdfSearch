@@ -5,11 +5,17 @@ import { SelectDirectory } from "./components/SelectDirectory";
 
 export function App() {
   return (
-    <div>
-      <Ping />
-      <SelectDirectory />
-      <Files />
-    </div>
+    <main>
+      <section>
+        <Ping />
+      </section>
+      <section>
+        <SelectDirectory />
+      </section>
+      <section>
+        <Files />
+      </section>
+    </main>
   );
 
 }

@@ -22,7 +22,7 @@ export function Files() {
     }
   }, [query])
   return (
-    <div>
+    <>
       <h1>Files</h1>
       <div>
         <input type="text" value={query} onChange={e => setQuery(e.target.value)} />
@@ -45,6 +45,6 @@ export function Files() {
           })}
         </tbody>
       </table>) : <p>{message}</p>}
-    </div>
+    </>
   );
 }

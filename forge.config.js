@@ -28,4 +28,17 @@ module.exports = {
       config: {},
     },
   ],
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 'fantadrinker',
+          name: 'pdfSearch'
+        },
+        prerelease: false,
+        draft: false
+      }
+    }
+  ]
 };

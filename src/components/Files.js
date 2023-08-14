@@ -16,7 +16,6 @@ export function Files() {
   }
 
   function openFile(path) {
-    console.log(path)
     if (!path) return;
     window.electron.openFileInFolder(path)
   }

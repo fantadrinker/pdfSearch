@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply bg-gray-200;
+}
+
+body > main {
+  @apply container mx-auto px-4 py-8;
+}
+
+body section {
+  @apply bg-white shadow border-b-black my-2 p-3;
+}
+
+h1 {
+  @apply text-2xl font-bold pb-3;
+}
+
+button {
+  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+}
+
+input {
+  @apply border border-gray-400 rounded;
+}
+
+table, th, td {
+  @apply border border-gray-400 px-4 py-2;
+}

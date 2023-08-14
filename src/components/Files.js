@@ -22,16 +22,16 @@ export function Files() {
     }
   }, [query])
   return (
-    <div>
-      <h1>Files</h1>
-      <div>
+    <>
+      <div className="mb-3">
+        <label className="font-bold mr-3">Search By Text:</label>
         <input type="text" value={query} onChange={e => setQuery(e.target.value)} />
       </div>
-      {files? (<table>
+      {files? (<table className="table-fixed border-solid border-gray-400">
         <thead>
           <tr>
-            <th>File Name</th>
-            <th>Matched Text</th>
+            <th className="w-1/4">File Name</th>
+            <th className="w-3/4">Matched Text</th>
           </tr>
         </thead>
         <tbody>
@@ -45,6 +45,6 @@ export function Files() {
           })}
         </tbody>
       </table>) : <p>{message}</p>}
-    </div>
+    </>
   );
 }

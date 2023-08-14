@@ -10,13 +10,13 @@ export function SelectDirectory() {
   return (
     <div>
       <h1>Select Directory</h1>
+      {directory && <p>Current directory: {directory}</p>}
       <button 
         className="btn btn-primary"
         onClick={selectDirectory}
       >
-        Select Directory
+        {directory? 'Change': 'Select'} Directory
       </button>
-      {directory && <p>{directory}</p>}
     </div>
   );
 }

@@ -4,38 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-  <link rel="stylesheet" href="output.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
   <title>PDF Search</title>
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
-  <!--
-  <h1>Hello World!</h1>
-  We are using Node.js <span id="node-version"></span>,
-  Chromium <span id="chrome-version"></span>,
-  and Electron <span id="electron-version"></span>.
-
-  <main>
-    <section id="file-upload">
-      <h2> Select working directory: </h2>
-      <input type="file" id="file-input" webkitdirectory directory multiple />
-      <button id="submit-button">Submit</button>
-    </section>
-    <section id="ping-test">
-      <h2> Ping test: </h2>
-      <button id="ping-button">Ping</button>
-      <p id="ping-result"></p>
-    </section>
-
-    <section id="file-test">
-      <h2> File test: </h2>
-      <button id="file-button">File</button>
-      <p id="file-result"></p>
-    </section>
-  </main> -->
 </body>
-
 </html>

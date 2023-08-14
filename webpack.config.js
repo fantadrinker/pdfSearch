@@ -12,7 +12,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, "dist"),
     },
-    open: true,
+    open: false,
     hot: true,
     compress: true,
     historyApiFallback: true
@@ -30,7 +30,7 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/i,
+        test: /\.css$/,
         include: path.resolve(__dirname, 'src'),
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       }
@@ -39,6 +39,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "index.html"),
+      inject: 'body'
     }),
   ],
   mode: "development", // "production" | "development" | "none"

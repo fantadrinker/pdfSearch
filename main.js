@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, dialog } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const db = require('./lib/init.js')
 
@@ -13,7 +13,12 @@ function createWindow() {
   })
 
   // and load the index.html of the app.
-  win.loadFile('dist/index.html')
+  if (process.env.NODE_ENV === 'production') {
+    win.loadFile('dist/index.html')
+  } else {
+    win.loadURL(`http://localhost:${process.env.PORT || 8080}`)
+  }
+
   //win.webContents.openDevTools()
 }
 

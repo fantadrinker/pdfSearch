@@ -1,3 +1,27 @@
+### Installation
+
+Go to [releases](https://github.com/fantadrinker/pdfSearch/releases) to 
+find the latest release, and download the corresponding 
+installer for your environment/os, for example here are some tested 
+operating systems:
+|    OS  | installer |
+| ------ | --------- |
+| Windows | \<name>-\<version>.Setup.exe |
+| MacOS | \<name>-darwin-x64-\<version>.zip |
+| Linux | \<name>_\<version>_amd64.deb |
+
+### Usage
+
+After successful installation, open the application, then you will see 
+an interface prompting you to select a directory. click on the button 
+and select a directory that contains the pdfs you want to search. 
+
+Note: currently only supports flat structure, any pdfs nested inside 
+a directory within the selected directory will not be searched.
+
+After directory is loaded, type words in the search input box to search for the 
+text within all the pdfs. 
+
 ### Development
 
 After downloading/cloning the repo, run 

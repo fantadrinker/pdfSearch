@@ -49,7 +49,9 @@ in another terminal to start the electron main process
     - write some tests
 2. [done] Let user choose working directory
 3. [done] Flush local database at start
-4. Open file handle on click
+4. [done] Open file handle on click
 5. [done] Set up fts5 with sqlite
 6. more debugging/error display/log dump
-7. UI improvement
+7. UI improvement - loading state while processing files
+8. UI improvement - refresh UI state periodically
+

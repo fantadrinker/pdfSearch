@@ -6,7 +6,7 @@
   "scripts": {
     "servejs": "webpack serve",
     "start": "concurrently \"webpack serve\" \"electron-forge start -- --dev --test\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "playwright test",
     "package": "webpack && electron-forge package",
     "make": "webpack && electron-forge make",
     "publish": "webpack && electron-forge publish"

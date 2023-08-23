@@ -55,3 +55,7 @@ in another terminal to start the electron main process
 7. UI improvement - loading state while processing files
 8. UI improvement - refresh UI state periodically
 
+
+### Testing
+
+run `npm run test` to test

@@ -4,8 +4,9 @@
   "description": "A app that allows you to search by text among pdf files",
   "main": "main.js",
   "scripts": {
+    "buildjs": "webpack",
     "servejs": "webpack serve",
-    "start": "concurrently \"webpack serve\" \"electron-forge start -- --dev --test\"",
+    "start": "concurrently \"webpack serve\" \"electron-forge start\"",
     "test": "playwright test",
     "package": "webpack && electron-forge package",
     "make": "webpack && electron-forge make",

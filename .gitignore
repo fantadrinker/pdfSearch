@@ -2,6 +2,7 @@ node_modules
 out
 package-lock.json
 db
+testdb
 dist
 
 lib/exts

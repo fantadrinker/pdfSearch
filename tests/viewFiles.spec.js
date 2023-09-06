@@ -55,20 +55,6 @@ test.describe('view files', () => {
     expect(resultRow).toContainText('some_doc.docx') // TODO: narrow down to the right cell
   })
 
-  test.skip('view files with query to show word file only', async () => {
-    // find the text input box
-    // type in query
-    expect(await mainPage.title()).toBe('PDF Search')
-    const searchBox = await mainPage.getByLabelText('Search By Text')
-    expect(searchBox).toBeTruthy()
-
-    await searchBox.fill('word')
-    const resultRow = await mainPage.pageLocator('tr[data-pw="file-result"]')
-    // assert the right file is filtered, and the wrong filename is not
-    expect(resultRow).toHaveCount(1)
-    expect(resultRow).toContainText('some_doc.docx') // TODO: narrow down to the right cell
-  })
-
   test.skip('open file', () => {
     // mock open file handle
 

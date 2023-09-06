@@ -3,6 +3,7 @@ out
 package-lock.json
 db
 testdb
+test-results
 dist
 
 lib/exts

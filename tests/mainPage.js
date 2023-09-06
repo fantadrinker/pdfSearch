@@ -4,7 +4,7 @@ const { _electron: electron } = require('playwright')
 exports.MainPage = class MainPage {
 
   constructor() {
-    this.electronApp = electron.launch({ args: ['.'] })
+    this.electronApp = electron.launch({ args: ['.', '--test'], recordVideo: { dir: 'test-results' } })
   }
 
   async goto() {
@@ -17,16 +17,23 @@ exports.MainPage = class MainPage {
     await electronApp.close()
   }
 
-  async title() {
-    return await this.page.title()
+  title() {
+    return this.page.title()
   }
 
-  async setup(data) {
-    const db = require('../lib/init.js')
-    db.mockDataSetup(data)
+  getByText(text) {
+    return this.page.getByText(text)
   }
 
-  async getByText(text) {
-    return await this.page.getByText(text)
+  getByLabelText(text) {
+    return this.page.getByLabel(text)
+  }
+
+  pageLocator(xpath){
+    return this.page.locator(xpath)
+  }
+
+  screenshot(options) {
+    return this.page.screenshot(options)
   }
 }

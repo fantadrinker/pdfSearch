@@ -4,6 +4,7 @@
 
 const { test, expect } = require('@playwright/test')
 const { MainPage } = require('./mainPage.js')
+const { mockDataSetup } = require('./testlib/mockDB')
 
 const mockData = [
   {
@@ -19,33 +20,60 @@ const mockData = [
 ]
 
 test.describe('view files', () => {
+  // TODO: move to fixtures https://playwright.dev/docs/test-fixtures
   let mainPage
 
   test.beforeEach(async () => {
+    await mockDataSetup(mockData)
     mainPage = new MainPage()
     await mainPage.goto()
-    await mainPage.setup(mockData)
+    await mainPage.title()
   })
 
   test.afterEach(async () => {
     await mainPage.close()
   })
 
-  test('view files', async () => {
+  test('list and query file text, should show pdf file only', async () => {
     // TODO: assert the right stuff here
     // Wait for the first BrowserWindow to open
     // and return its Page object
     expect(await mainPage.title()).toBe('PDF Search')
-    expect(await mainPage.getByText('file.pdf')).toBeTruthy()
-    expect(await mainPage.getByText('some_doc.docx')).toBeTruthy()
 
+    const resultRow = await mainPage.pageLocator('tr[data-pw="file-result"]')
+    expect(resultRow).toHaveCount(2)
+    const searchBox = await mainPage.getByLabelText('Search By Text')
+    expect(searchBox).toBeTruthy()
+
+    await searchBox.fill('test')
+    expect(resultRow).toHaveCount(1)
+    expect(resultRow).toContainText('file.pdf') // TODO: narrow down to the right cell
+
+    await searchBox.fill('document')
+
+    expect(resultRow).toHaveCount(1)
+    expect(resultRow).toContainText('some_doc.docx') // TODO: narrow down to the right cell
   })
 
-  test('view files with query', async () => {
-    expect(1).toBeTruthy()
+  test.skip('view files with query to show word file only', async () => {
+    // find the text input box
+    // type in query
+    expect(await mainPage.title()).toBe('PDF Search')
+    const searchBox = await mainPage.getByLabelText('Search By Text')
+    expect(searchBox).toBeTruthy()
+
+    await searchBox.fill('word')
+    const resultRow = await mainPage.pageLocator('tr[data-pw="file-result"]')
+    // assert the right file is filtered, and the wrong filename is not
+    expect(resultRow).toHaveCount(1)
+    expect(resultRow).toContainText('some_doc.docx') // TODO: narrow down to the right cell
   })
 
-  test('open file', () => {
-    expect(1).toBeTruthy()
+  test.skip('open file', () => {
+    // mock open file handle
+
+    // click on file
+
+    // assert open file function is called
   })
 })

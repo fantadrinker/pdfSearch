@@ -47,6 +47,7 @@ in another terminal to start the electron main process
 
 1. [playwright done] Research and add CI/CD pipeline?
     - write some tests
+    - dockerrize it so I can run it with a 
 2. [done] Let user choose working directory
 3. [done] Flush local database at start
 4. [done] Open file handle on click

@@ -33,7 +33,8 @@ module.exports = {
         test: /\.css$/,
         include: path.resolve(__dirname, 'src'),
         use: ['style-loader', 'css-loader', 'postcss-loader'],
-      }
+      },
+      { test: /\.tsx?$/, loader: "ts-loader" }
     ]
   },
   plugins: [
@@ -43,5 +44,8 @@ module.exports = {
     }),
   ],
   mode: "development", // "production" | "development" | "none"
-  devtool: 'cheap-module-source-map'
+  devtool: 'source-map',
+  resolve: {
+    extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
+  }
 }
